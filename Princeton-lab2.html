@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Princeton Used Cars</title>
+</head>
+<body>
+    <h1>Princeton's Used Cars: Employee List</h1>
+    <form>
+        <label for="name">Name: <br></label>
+        <input type="text" id="name" name="name" required><br>
+   
+        <!---write themin alphabetical order-->
+    <label for="province">Province: <br></label>
+    <select id="province" name="province">
+      <option value="AB">Alberta</option>
+      <option value="BC">British Columbia</option>
+      <option value="MB">Manitoba</option>
+      <option value="NB">New Brunswick</option>
+      <option value="NL">Newfoundland and Labrador</option>
+      <option value="NT">Northwest Territories</option>
+      <option value="NS">Nova Scotia</option>
+      <option value="NU">Nunavut</option>
+      <option value="ON">Ontario</option>
+      <option value="PE">Prince Edward Island</option>
+      <option value="QC">Quebec</option>
+      <option value="SK">Saskatchewan</option>
+      <option value="YT">Yukon</option>
+    </select><br>
+    
+    <label for="dob">DOB: <br></label>
+    <input type="date" id="dob" name="dob" required><br>
+    
+    <label for="favColor">Fav Color: <br></label>
+    <input type="color" id="favColor" name="favColor"><br>
+    
+    <input type="button" value="Add Employee" onclick="addEmployee()"><br>
+      </form>
+
+  <ol id="employeeList"></ol>
+  <script>
+    function addEmployee() {
+      var empName = document.getElementById("name").value;
+      var province = document.getElementById("province").value;
+      var dob = document.getElementById("dob").value;
+      var favColor = document.getElementById("favColor").value;
+      
+      var employee = document.createElement("li");
+      employee.style.color = favColor;
+      employee.appendChild(document.createTextNode(empName + " from " + province + " is born on " + dob));
+      
+      document.getElementById("employeeList").appendChild(employee);
+    }
+  </script>
+</body>
+</html>
